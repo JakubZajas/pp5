@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <form class="container mt-5" onsubmit="handleSubmit(event)">
+        <div class="col-md-4">
+            <label for="Company" class="form-label">Company </label>
+            <input type="text" class="form-control" id="Company" required>
+        </div>
+        <div class="col-md-4">
+            <label for="NIP" class="form-label"> NIP </label>
+            <input type="text" class="form-control" id="NIP" required>
+        </div>
+        <div class="col-md-4">
+            <label for="City" class="form-label"> City</label>
+            <input type="text" class="form-control" id="City" required>
+        </div>
+        <div class="col-md-4">
+            <label for="Street" class="form-label"> Street </label>
+            <input type="text" class="form-control" id="Street" required>
+        </div>
+        <div class="col-md-4">
+            <label for="HouseNr" class="form-label"> HouseNr</label>
+            <input type="text" class="form-control" id="HouseNr" required>
+        </div>
+        <div class="col-md-4">
+            <label for="Mieszkanie" class="form-label">Mieszkanie </label>
+            <input type="text" class="form-control" id="Mieszkanie">
+        </div>
+        <div class="col-md-4">
+            <label for="Kod Pocztowy" class="form-label">Kod Pocztowy </label>
+            <input type="text" class="form-control" id="Kod" required>
+        </div>
+
+        <div class="col-md-4">
+            <label for="Uwagi" class="form-label">Uwagi </label>
+            <textarea type="textarea" class="form-control" id="Uwagi" ></textarea>>
+        </div>
+
+        <div class="col-md-4">
+            <label for="Branża" class="form-label">Branża</label>
+            <select class="form-select" id="Branża" required>
+            <option selected disabled value="">Branża</option>
+            <option>IT</option>
+            <option>sth2</option>
+            <option>sth3</option>
+            </select>
+        </div>
+
+        <div class="col-12">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check" required>
+            <label class="form-check-label" for="invalidCheck">Online</label>
+            </div>
+        </div>
+    
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="button" onclick="handleClick()">Kliknij mnie</button>
+        </div>
+
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>
