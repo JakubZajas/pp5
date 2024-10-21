@@ -1,0 +1,19 @@
+$body-bg: #000;
+$body-color: #FFF;
+$primary-color: orange;
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+body{
+    background-color: black;
+}
+
+body{
+    .d-flex {
+        form{
+            .last-element-label {
+                background-color: $primary-color;
+                color: red;
+            }
+        }
+    }
+}
