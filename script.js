@@ -1,3 +1,17 @@
+function handleClick(newCustomer) {
+    document.getElementById('Company').value = newCustomer.Company,
+    document.getElementById('NIP').value = newCustomer.NIP,
+    document.getElementById('City').value = newCustomer.City,
+    document.getElementById('Street').value = newCustomer.Street,
+    document.getElementById('HouseNr').value = newCustomer.HouseNr,
+    document.getElementById('Mieszkanie').value = newCustomer.Mieszkanie,
+    document.getElementById('Kod').value = newCustomer.Kod,
+    document.getElementById('Uwagi').value = newCustomer.Uwagi,
+    document.getElementById('Branża').value = newCustomer.Branża,
+    document.getElementById('check').checked = newCustomer.check;
+}
+
+
 function handleSubmit(event) {
     event.preventDefault(); // Zapobiega domyślnej akcji formularza
     
@@ -18,24 +32,11 @@ function handleSubmit(event) {
     console.log(data);
     customerList.push(data)
     showList()
+    console.log(customersList);
 
     return false;
 };
 
-function handleClick() {
-    document.getElementById('Company').value = "Nie mam :(",
-    document.getElementById('NIP').value = 9999,
-    document.getElementById('City').value = "Kraków",
-    document.getElementById('Street').value = "Rakowicka",
-    document.getElementById('HouseNr').value = 27,
-    document.getElementById('Mieszkanie').value = "Pawilon A",
-    document.getElementById('Kod').value = "32-600",
-    document.getElementById('Uwagi').value = "Nie ma łóżek",
-    document.getElementById('Branża').value = "IT",
-    document.getElementById('check').checked = true;
-
-    console.log("Wstawiono dane")
-}
 
 
 function showForm() {
@@ -55,6 +56,12 @@ function showList() {
         ul.innerHTML += `<li>${customer.nazwaFirmy} <button class="btn  btn-primary"
         onclick"showCustomer('${customer.id}')">Edytuj</button></>`
     }
+}
+
+function showCustomer(customerId) {
+    showForm();
+    let customer = customersList.filter()
+    addDataToForm();
 }
 
 function getCustomer() {
@@ -86,12 +93,4 @@ function getEmptyCustomer() {
         check: false
 
     }
-}
-
-
-function showCustomer(customerId) {
-    showForm();
-    let customer = customerList.find();
-    // addDataToForm(customer)
-
 }
