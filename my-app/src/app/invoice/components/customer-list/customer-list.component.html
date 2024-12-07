@@ -1,0 +1,32 @@
+<!-- Ja -->
+<!-- <p
+    *ngFor="let customer of customersList"
+    {{ customer.name }}
+></p>
+
+<app-customer-list-element 
+                        *ngFor="let customer of customersList: index as i;"
+                        [customer] = "customer"
+></app-customer-list-element> -->
+
+
+<!-- Mikołaj -->
+<p *ngFor="let customer of customersList; let i = index">
+    {{ customer.name }}
+</p>
+<button (click)="redirect()">dodaj nowy</button>
+
+
+<!-- Balsamski -->
+<!-- <div id="client-list">
+    <ul class="list-group" id="customer-list">
+        <app-customer-list-element
+            *ngFor="let customer of customersList" 
+            [customer]="customer"
+            (deletedCustomerEvent)="deletedCustomer($event)"
+        ></app-customer-list-element>
+    </ul>
+    <button type="button" class="btn btn-primary" [routerLink]="'/invoice/customer/form/'">Add new customer</button>
+</div> -->
+
+
