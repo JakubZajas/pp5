@@ -4,106 +4,71 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="./assets/style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <script src="assets/js/models/customer.js"></script>
+    <script src="assets/js/index.js"></script>
   </head>
   <body>
-    <div id ="customer-list">
-        <h1>Lista Klientów</h1>
-        <ul id="customer-list-data"> 
+    <div class="container">
+      <div id="client-list">
+        <ul class="list-group" id="customer-list">
+          <!-- Wstaw tutaj liste klientow -->
         </ul>
-        <button type="button" onclick="showForm()">Show Form</button>
+        <button type="button" class="btn btn-primary" onclick="showForm()">Add new customer</button>      
+      </div>
+      <div class="form" id="client-form" style="display: none;">
+        <h1 id="login-form">Form</h1>
+        <div class="d-flex justify-content-center">
+          <div class="w-50">
+            <form  onsubmit="return save(event)">
+              <div class="mb-3 content-center">
+                <label for="company-name" class="form-label">Company name</label>
+                <input type="text" class="form-control" id="company-name">
+              </div>
+              <div class="mb-3">
+                <label for="nip" class="form-label">NIP</label>
+                <input type="number" class="form-control" id="nip" required>
+              </div>
+              <div class="mb-3">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" required>
+                </div>
+                <div class="mb-3">
+                  <label for="street" class="form-label">Street</label>
+                  <input type="text" class="form-control" id="street" required>
+                </div>
+                <div class="mb-3">
+                  <label for="house-number" class="form-label">House nr</label>
+                  <input type="TEXT" class="form-control" id="house-number">
+                </div>
+                <div class="mb-3">
+                  <label for="zipcode" class="form-label">Zip code</label>
+                  <input type="text" class="form-control" id="zipcode" required>
+                </div>
+              <div>
+                <div class="mb-3">
+                  <label for="comments" class="form-label">Comments</label>
+                  <textarea type="text" class="form-control" id="comments"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="industry" class="form-label">Industry</label>
+                  <select type="number" class="form-control" id="industry">
+                    <option value="1">Informatyka</option>
+                    <option value="2">Kosmetyka</option>
+                  </select>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="active">
+                  <label class="form-check-label" for="active">Active</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" >Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div id = "customer-form" style="display: none;">
-        <form class="container mt-5" onsubmit="return saveData(event)">
-            <div class="col-md-4">
-                <label for="Company" class="form-label">Company </label>
-                <input type="text" class="form-control" id="Company" required>
-        </div>
-        <div class="col-md-4">
-            <label for="NIP" class="form-label"> NIP </label>
-            <input type="text" class="form-control" id="NIP" required>
-        </div>
-        <div class="col-md-4">
-            <label for="City" class="form-label"> City</label>
-            <input type="text" class="form-control" id="City" required>
-        </div>
-        <div class="col-md-4">
-            <label for="Street" class="form-label"> Street </label>
-            <input type="text" class="form-control" id="Street" required>
-        </div>
-        <div class="col-md-4">
-            <label for="HouseNr" class="form-label"> HouseNr</label>
-            <input type="text" class="form-control" id="HouseNr" required>
-        </div>
-        <div class="col-md-4">
-            <label for="Mieszkanie" class="form-label">Mieszkanie </label>
-            <input type="text" class="form-control" id="Mieszkanie">
-        </div>
-        <div class="col-md-4">
-            <label for="Kod Pocztowy" class="form-label">Kod Pocztowy </label>
-            <input type="text" class="form-control" id="Kod" required>
-        </div>
-
-        <div class="col-md-4">
-            <label for="Uwagi" class="form-label">Uwagi </label>
-            <textarea type="textarea" class="form-control" id="Uwagi" ></textarea>>
-        </div>
-
-        <div class="col-md-4">
-            <label for="Branża" class="form-label">Branża</label>
-            <select class="form-select" id="Branża" required>
-            <option selected disabled value="">Branża</option>
-            <option>IT</option>
-            <option>sth2</option>
-            <option>sth3</option>
-            </select>
-        </div>
-
-        <div class="col-12">
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="check" required>
-            <label class="form-check-label" for="invalidCheck">Online</label>
-        </div>
-        </div>
-        
-            <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </div>
-            
-            <div class="col-12">
-                <button class="btn btn-primary" type="button" onclick="handleClick()">Auto Submit</button>
-            </div>
-        
-        </form>
-    </div>
-
-    <h2 class="text-center mt-5" id="clientListHeading" style="display: none;">Lista Klientów</h2>
-    <div class="container mt-3" id="clientListContainer" style="display: none;">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>NIP</th>
-                    <th>City</th>
-                    <th>Street</th>
-                    <th>HouseNr</th>
-                    <th>Mieszkanie</th>
-                    <th>Kod Pocztowy</th>
-                    <th>Uwagi</th>
-                    <th>Branża</th>
-                </tr>
-            </thead>
-            <tbody id="clientList">
-                <!-- Klienci będą dodawani tutaj -->
-            </tbody>
-        </table>
-    </div> 
-
-
-
-    <script src="./assets/js/script.js"></script>
-    <script src="./customer.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
