@@ -16,7 +16,9 @@ export class Customer {
     getAddress():string {
         return `${this.city} ${this.zipCode} ${this.street} ${this.houseNumber}`;
     }
+
     getCustomerInfo():string {
+        // console.log("NIP:", this.nip)
         return `${this.name} (${this.nip})`;
     }
 }

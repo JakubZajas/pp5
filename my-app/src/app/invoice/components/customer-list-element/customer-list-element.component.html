@@ -1,7 +1,5 @@
-<!-- Opcja 1  -->
-<!-- {{ customer.name }} -->
+<li class="list-group-item" [ngStyle]="!customer.active ? {'color': 'red'} : {}">{{customer.getCustomerInfo() }}</li>
 
 
-<!-- Opcja 2  -->
-<li class="list-group-item" [ngStyle]="!customer.active ? {'color': 'red'} : {}">{{customer.getCustomerInfo()}}</li>
-<!-- <li><button (click)="onDeletedCustomer(customer)">Delete</button></li> -->
+<!-- <button class="btn" (click)="redirectToForm()"> Do forma </button> -->
+<button class="btn btn-danger" (click)="deleteCustomer()">x</button>

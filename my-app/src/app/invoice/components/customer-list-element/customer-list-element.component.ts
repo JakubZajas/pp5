@@ -12,12 +12,12 @@ export class CustomerListElementComponent {
   @Input()
   customer: Customer = new Customer();
 
-  // Było w kodzie balsama
-  // @Output()
-  // deletedCustomerEvent = new EventEmitter<Customer>();
+  @Output()
+  deleteCustomerEvent = new EventEmitter<Customer>();
 
-  // onDeletedCustomer(customer: Customer){
-  //   this.deletedCustomerEvent.emit(customer);
-  // }
+  deleteCustomer() {
+    console.log("kasuje klienta:", this.customer.nip)
+    this.deleteCustomerEvent.emit(this.customer)
+  }
 
 }
