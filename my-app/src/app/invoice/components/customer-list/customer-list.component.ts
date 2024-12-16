@@ -27,7 +27,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log("Exiting")
+    console.log("Exiting this empty shell")
   }
 
   deleteCustomer(customer:Customer){

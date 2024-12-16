@@ -2,10 +2,11 @@
   <h1 id="login-form">Form</h1>
   <div class="d-flex justify-content-center">
     <div class="w-50">
-      <form (ngSubmit)="onSubmitForm()">
+      <form #form="ngForm" (ngSubmit)="onSubmitForm(form)">
         <div class="mb-3 content-center">
           <label for="company-name" class="form-label">Company name</label>
-          <input type="text" class="form-control" id="company-name" name="name" [(ngModel)] ="customer.name">
+          <input type="text" class="form-control" id="company-name" name="name" #name="ngModel" [(ngModel)] ="customer.name" required>
+          <div class="invalid-feedback" [hidden]="name.valid || name.untouched" class="alert alert-danger">Pole nazwa nie może być puste</div>
         </div>
         <div class="mb-3">
           <label for="nip" class="form-label">NIP</label>
@@ -13,11 +14,11 @@
         </div>
         <div class="mb-3">
             <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" name="city" [(ngModel)] ="customer.city" id="city" required>
+            <input type="text" class="form-control" name="city" [(ngModel)] ="customer.city" id="city" >
           </div>
           <div class="mb-3">
             <label for="street" class="form-label">Street</label>
-            <input type="text" class="form-control" name="street" [(ngModel)] ="customer.street" id="street" required>
+            <input type="text" class="form-control" name="street" [(ngModel)] ="customer.street" id="street" >
           </div>
           <div class="mb-3">
             <label for="house-number" class="form-label">House nr</label>
@@ -25,7 +26,7 @@
           </div>
           <div class="mb-3">
             <label for="zipcode" class="form-label">Zip code</label>
-            <input type="text" class="form-control" name="zipCode" [(ngModel)] ="customer.zipCode" id="zipCode" required>
+            <input type="text" class="form-control" name="zipCode" [(ngModel)] ="customer.zipCode" id="zipCode" >
           </div>
         <div>
           <div class="mb-3">
@@ -44,7 +45,7 @@
             <label class="form-check-label" for="active">Active</label>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" >Save</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
       </form>
       <!-- {{ customer | json}} -->
     </div>

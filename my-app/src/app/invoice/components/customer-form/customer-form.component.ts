@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Customer } from '../../models/customer';
 import { CustomerService } from '../../Services/customer.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -22,13 +23,17 @@ export class CustomerFormComponent {
   }
 
 
-  onSubmitForm(){
-    console.log('zawartość service', this.customer); 
-    let result = this.customerService.addCustomer(this.customer);
-    console.log(result);
-    // this.router.navigate(['/invoice/components/customer-form/customer-form.component.html'])
-    this.router.navigate(['/invoice/customer-list']);
-//     this.router.navigate(['/invoice/customer/list']);
+  onSubmitForm(ngForm : NgForm){
+    console.log(ngForm.valid);
+    console.log(ngForm);
+    if(ngForm.valid){
+      console.log('zawartość service', this.customer); 
+      let result = this.customerService.addCustomer(this.customer);
+      console.log(result);
+      // this.router.navigate(['/invoice/components/customer-form/customer-form.component.html'])
+      this.router.navigate(['/invoice/customer-list']);
+  //     this.router.navigate(['/invoice/customer/list']);
+    }
 
 
   }
