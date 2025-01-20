@@ -1,0 +1,9 @@
+<app-customer-list-element
+    *ngFor="let customer of customersList"
+    [customer]="customer"
+    (deleteCustomerEvent)="deleteCustomer($event)"
+></app-customer-list-element>
+
+<button (click)="redirect()">dodaj nowy</button>
+
+

@@ -1,0 +1,28 @@
+{
+  "customers": [
+    {
+      "id": "",
+      "name": "Krzysiyu",
+      "nip": 3123,
+      "city": "asdad",
+      "street": "awd",
+      "houseNumber": "awd",
+      "zipCode": "awd213",
+      "comments": "awd",
+      "industry": "1",
+      "active": false
+    },
+    {
+      "id": "",
+      "name": "daawdawd",
+      "nip": 12314,
+      "city": "dcsf",
+      "street": "safasd",
+      "houseNumber": "asd",
+      "zipCode": "asd",
+      "comments": "awdawdsads",
+      "industry": "1",
+      "active": true
+    }
+  ]
+}

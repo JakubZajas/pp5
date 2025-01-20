@@ -1,0 +1,5 @@
+<li class="list-group-item" [ngStyle]="!customer.active ? {'color': 'red'} : {}">{{customer.getCustomerInfo() }}</li>
+
+
+<!-- <button class="btn" (click)="redirectToForm()"> Do forma </button> -->
+<button class="btn btn-danger" (click)="deleteCustomer()">x</button>
